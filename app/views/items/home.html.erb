@@ -1,1 +1,29 @@
-<h1>Look at app/views/items/home.html.erb</h1>
+<div ng-controller="ItemsController">
+
+  <img src="http://media.corporate-ir.net/media_files/IROL/17/176060/cba-button_hi-res.jpg" class="checkout">
+
+  <div ng-repeat="item in items" ng-show="allItemsView">
+    <img src="{{item.url}}">
+    <h1>{{item.name}}</h1>
+    {{item.description}}
+    <h3>{{item.price | currency}}</h3>
+    <h3>{{item.quantity}} in stock</h3>
+    <img src="http://bestkidstrampolinereviews.com/wp-content/uploads/2013/12/Amazon-Add-To-Cart-300x62.jpg" ng-click="addToCart(item)">
+  </div>
+
+  <div ng-show="cartView">
+    <h1>ITEMS IN CART</h1>
+    <div ng-repeat="item in itemsInCart">
+      <h2>{{item.name}}</h2>
+      <h3>{{item.price | currency}}</h3>
+    </div>
+    <h3>TOTAL: {{getTotal()}}</h3>
+  </div>
+
+  <div ng-show="orderView">
+
+  <h1>ENTER PAYMENT</h1>
+  Name <input name="person"><br>
+  CREDIT CARD <input name="credit-card">
+  </div>
+</div>
