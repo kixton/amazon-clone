@@ -1,0 +1,18 @@
+<img src="http://cdn.shopify.com/s/files/1/0099/2522/t/1/assets/logo.png?0">
+<div class="header">
+  <img src="http://media.corporate-ir.net/media_files/IROL/17/176060/cba-button_hi-res.jpg" class="checkout" ng-click="checkout()">
+  <h3>Items In Cart: {{ totalItemsInCart }}</h3>
+</div>
+
+<div class="items" ng-repeat="item in items" ng-show="allItemsView">
+  <div class="item-summary">
+    <img src="{{item.url}}" class="item-preview">
+    <h1>{{ item.name }}</h1>
+    {{ item.description }}
+    <h3>{{ item.price | currency }}</h3>
+    <h3>{{ item.quantity }} in stock</h3>
+    <img src="http://bestkidstrampolinereviews.com/wp-content/uploads/2013/12/Amazon-Add-To-Cart-300x62.jpg" ng-click="addToCart(item)" class="add-to-cart">
+  </div>
+</div>
+
+  

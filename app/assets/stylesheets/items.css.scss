@@ -2,7 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header {
+  display: block;
+  width: 98%;
+  text-align: right;
+}
+
+.cart-items,
+.payment {
+  border: 5px solid black;
+  margin: 5px;
+}
+
 .checkout {
-  width: 400px;
-  height: 150px;
+  width: 200px;
+  height: 50px;
+}
+
+.item-summary {
+  display: inline-block;
+  float: left;
+  margin: 10px;
+}
+
+.add-to-cart {
+  width: 100px;
+  height: 20px;
+}
+
+.item-preview {
+  max-width: 100px;
+}
+
+
+.cart-items {
+  clear: both;
 }

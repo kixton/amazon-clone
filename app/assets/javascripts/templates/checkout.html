@@ -1,0 +1,14 @@
+
+  <h1>ITEMS IN CART</h1>
+  <div ng-repeat="item in cartDetails">
+      Item: {{ item.item.name }}<br>
+      Cost: {{ item.item.price | currency }}<br>
+      Quantity: {{ item.count }}<br>
+      Subtotal: {{ item.item.price * item.count | currency }}<br><br>
+  </div>
+  <h3>GRAND TOTAL: {{ grandTotal | currency }}</h3>
+
+
+  <h1>NAME</h1> <input name="person" ng-model="name"><br>
+  <h1>CREDIT CARD (it's safe)</h1> <input name="credit-card"><br>
+  <img src="http://summitoptical.com/wp-content/uploads/2009/08/Job-Order-icon.jpg" ng-click="placeOrder()">

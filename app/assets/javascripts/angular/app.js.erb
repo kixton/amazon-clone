@@ -1,0 +1,17 @@
+var app = angular.module('amazon', ['ngResource', 'ngRoute']);
+
+// config to routes
+app.config(function($routeProvider) {
+  $routeProvider
+    .when('/', {
+    // look for this template
+      templateUrl: "<%= asset_path('assets/templates/items.html') %>",
+      // link to this controller
+      controller: 'ItemsController'
+    })
+    .when('/checkout', {
+      templateUrl: "<%= asset_path('assets/templates/checkout.html') %>",
+      controller: 'OrderController'
+    })
+
+})
