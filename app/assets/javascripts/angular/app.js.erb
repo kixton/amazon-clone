@@ -12,6 +12,9 @@ app.config(function($routeProvider) {
     .when('/checkout', {
       templateUrl: "<%= asset_path('assets/templates/checkout.html') %>",
       controller: 'OrderController'
-    })
+    }).
+    otherwise({
+      redirectTo: "/"
+    });
 
 })

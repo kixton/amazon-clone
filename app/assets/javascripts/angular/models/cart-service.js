@@ -1,17 +1,19 @@
 
 
-app.factory('Cart', function() {
-  var cart = {};
-
+app.factory('Cart', ['$resource', function($resource) {
   // returns an object
+  var Order = $resource("/orders/:id", {id: "@id"});
+
   return {
+    cart: {},
+    grandTotal: 0,
     addToCart: function(item) {
-      if ( cart[item.id] === undefined ) {
-        cart[item.id] = {item: item, count: 1};
+      if ( this.cart[item.id] === undefined ) {
+        this.cart[item.id] = {item: item, count: 1};
         item.quantity -= 1; 
         this.grandTotal += item.price;
       } else {
-        cart[item.id].count += 1;
+        this.cart[item.id].count += 1;
         item.quantity -= 1; 
         this.grandTotal += item.price;
       }
@@ -22,11 +24,18 @@ app.factory('Cart', function() {
     },
 
     buyItems: function(name) {
+      for (item in this.cart) {
+        var itemBought = this.cart[item];
+        console.log(item);
+        console.log(this.cart[item]);
+        // itemBought.item.$update();
+      }
 
-    },
-
-    grandTotal: 0
+      var order = new Order({ person: name, cost: this.grandTotal });
+      order.$save();
+      this.cart = {};
+    }
 
   };
 
-});
+}]);
